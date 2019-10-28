@@ -10,11 +10,29 @@ document.querySelector('#twoMissionaries').addEventListener('click', () => play(
 document.querySelector('#twoCannibals').addEventListener('click', () => play(0, 2));
 document.querySelector('#oneMissionaryOneCannibal').addEventListener('click', () => play(1, 1));
 
-    // take missionaries and cannibals count and apply appropriate operation
+var buttonGo= document.querySelector('#go');
+
+buttonGo.style.visibility='hidden';
+
+    // take pollito and zorro count and apply appropriate operation
+
+    
 const play = (M, C) => {
     missionaryCount = M;
     cannibalCount = C;
-    applyMove(missionaryCount, cannibalCount);
+    buttonGo.style.visibility='visible';
+ //   applyMove(missionaryCount, cannibalCount);
+   
+}
+selectGo();
+function selectGo(){
+
+    buttonGo.addEventListener('click', function(){
+        applyMove(missionaryCount, cannibalCount);
+        buttonGo.style.visibility='hidden';
+
+    });
+    
 }
 // main function 
 function applyMove(M, C) {
@@ -43,8 +61,9 @@ function applyMove(M, C) {
                 } else if (checkfromState()) {
                     console.log("Acceptable State");
                 } else {
+                    tracker = [3, 3, 1];
+
                     console.log("GAME OVER");
-                    alert("PERDISTE");
 
                     //Logica de cambiar pantalla
                     intentos -= 1;
@@ -54,8 +73,8 @@ function applyMove(M, C) {
 
                     console.log("ja manga de putitos" + intentos);
                     //  location.reload();
-
-                    tracker = [3, 3, 1];
+                    console.log("GAME OVER");
+                    alert("PERDISTE");
                 }
             }
         } else {
