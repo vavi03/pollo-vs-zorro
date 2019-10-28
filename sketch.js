@@ -4,7 +4,7 @@ let state = [];
 let killedState = [];
 let iterator = true;
 var intentos = 3;
-
+let puntajeAsignado=0;
 
 // create an object for individual state
 class CreateState { 
@@ -33,6 +33,7 @@ let imgWin;
 let pantalla;
 let cora;
 let espacioVida;
+let imgResumen;
 
 function  preload(){
 
@@ -45,6 +46,8 @@ function  preload(){
   imgLose=loadImage('/img/lose.png');
   cora=loadImage('/img/cora.png');
   espacioVida=loadImage('/img/espacioVida.png');
+  imgResumen=loadImage('/img/resultados.png');
+
 }
 
 function setup() {
@@ -125,6 +128,9 @@ function draw() {
     case 3:
     image(imgWin,width/2,height/2);
     break;
+    case 4:
+    image(imgResumen,width/2,height/2);
+    break;
 
   }
 
@@ -142,9 +148,24 @@ function mouseClicked(){
   pantalla=1; 
  }
  if(pantalla==3 && mouseY>=389 && mouseY<=429 && mouseX>697 && mouseX<832){
-   //Siguiente codigo perras
-   location= '/resultados.html';
+   //EL PARTICIPANTE GANO SI ESTA EN ESTA PANTALLA Y SE LE ASIGNA UN PUNTAJE DEPENDIENDO CUANTOS INTENTOS UTILIZO
+   if(intentos==3){
+    puntajeAsignado=100;
+  }else if(intentos==2){
+    puntajeAsignado=75;
+  } else if(intentos==1){
+    puntajeAsignado=50;
+  }
+//CAMBIAR DE PANTALLA 
+  console.log('el puntaje asignado es: '+puntajeAsignado);
+
  }
+
+ if(pantalla==4 && mouseY>=389 && mouseY<=429 && mouseX>697 && mouseX<832){
+    
+  //EL USUARIO PERDIO SI ESTA EN ESTA PANTALLA, PONER AQUI EL CAMBIO DE GAME
+ 
+}
 
 
 }

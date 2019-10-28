@@ -53,6 +53,7 @@ function applyMove(M, C) {
                     console.log("YOU WON");
 
                     pantalla=3;
+                     
                     //Logica de cambiar pantalla
                    
                     
@@ -67,13 +68,15 @@ function applyMove(M, C) {
                     //Logica de cambiar pantalla
                     intentos -= 1;
                     if (intentos <= 0) {
-                        location = "/resultados.html";
-                    }
+                              pantalla=4;
+
+                    }else if(intentos>=1){
 
                     console.log("ja manga de putitos" + intentos);
                     //  location.reload();
                     console.log("GAME OVER");
                     pantalla=2;
+                    }
                 }
             }
         } else {
