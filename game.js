@@ -2,7 +2,7 @@ let missionaryCount;
 let cannibalCount;
 let tracker = [3, 3, 1];
 let parent;
-let intentos = 3;
+
 
 document.querySelector('#oneMissionary').addEventListener('click', () => play(1, 0));
 document.querySelector('#oneCannibal').addEventListener('click', () => play(0, 1));
@@ -51,10 +51,9 @@ function applyMove(M, C) {
                 console.log(tracker);
                 if (tracker[0] == 0 && tracker[1] == 0 && tracker[2] == 0) {
                     console.log("YOU WON");
-                    alert("HURRAH! Ganaste!");
 
+                    pantalla=3;
                     //Logica de cambiar pantalla
-                    location = "/resultados.html";
                    
                     
 
@@ -74,7 +73,7 @@ function applyMove(M, C) {
                     console.log("ja manga de putitos" + intentos);
                     //  location.reload();
                     console.log("GAME OVER");
-                    alert("PERDISTE");
+                    pantalla=2;
                 }
             }
         } else {
@@ -108,15 +107,3 @@ function checkfromState() {
     }
     return false;
 }
-/*
-this.getscript("sketch.js", function(){
-    getPantalla();
- });
-// applying 5 possible operations on button click events.
-let botones=document.querySelectorAll('.buttons');
-
-if(getPantalla()==0){
-    botones.style.visibility="hidden";
-}
-
-*/

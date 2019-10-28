@@ -30,7 +30,8 @@ ul li {
     color: #fff;
 }
 ul li:hover {
-    cursor: pointer; 
+    cursor: pointer;
+    background-color:rgb(226, 6, 65); 
 }
 
 .instruc{
@@ -59,7 +60,28 @@ text-decoration: none;
 justify-content: center;
 align-content: center;
 
-
-
 }
 
+.espacioGo{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.gogo{
+    margin-top: 10px;
+    background-color: rgb(4, 207, 197);
+    border:none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    width:60px;
+    height:40px;
+    font-size: 25px;
+    
+    color: white;
+}
+.gogo:hover{
+    background-color: rgb(1, 128, 121);
+}

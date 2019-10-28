@@ -3,6 +3,9 @@ let goalState = [0, 0, 0];
 let state = [];
 let killedState = [];
 let iterator = true;
+var intentos = 3;
+
+
 // create an object for individual state
 class CreateState { 
   constructor() {
@@ -21,13 +24,15 @@ rootNode.visited = false;
 
 
 let imgInstruc;
-
 let imgZorro;
 let imgConejo;
 let imgFondo;
 let imgBarca;
-
+let imgLose;
+let imgWin;
 let pantalla;
+let cora;
+let espacioVida;
 
 function  preload(){
 
@@ -36,7 +41,10 @@ function  preload(){
   imgZorro= loadImage('/img/zorro.png');  
   imgFondo= loadImage('/img/fondo.png');
   imgInstruc= loadImage('/img/instruc.png');
-
+   imgWin=loadImage('/img/win.png')
+  imgLose=loadImage('/img/lose.png');
+  cora=loadImage('/img/cora.png');
+  espacioVida=loadImage('/img/espacioVida.png');
 }
 
 function setup() {
@@ -60,6 +68,7 @@ function setup() {
 }
 function draw() {
 
+  console.log('estoy en pantalla: '+pantalla);
   switch(pantalla){
 
     case 0:
@@ -70,6 +79,11 @@ function draw() {
 
     case 1:
     image(imgFondo,width/2,height/2);
+
+    image(espacioVida,width-400,100);
+    for(let h=0; h<intentos; h++){
+      image(cora,(width-400)+ h*40, 100);
+    }
 
     // set boat position
     let x;
@@ -105,6 +119,12 @@ function draw() {
     }
 
     break;
+    case 2:
+    image(imgLose,width/2,height/2);
+    break;
+    case 3:
+    image(imgWin,width/2,height/2);
+    break;
 
   }
 
@@ -118,6 +138,13 @@ function mouseClicked(){
     
     pantalla=1;
   }
+ if(pantalla==2 && mouseY>=389 && mouseY<=429 && mouseX>697 && mouseX<832){
+  pantalla=1; 
+ }
+ if(pantalla==3 && mouseY>=389 && mouseY<=429 && mouseX>697 && mouseX<832){
+   //Siguiente codigo perras
+   location= '/resultados.html';
+ }
 
 
 }
